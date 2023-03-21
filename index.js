@@ -116,7 +116,7 @@ mongoose.set("strictQuery", false);
 
 //Connect to db:
 mongoose.connect(
-  "mongodb://localhost:27017",
+  process.env.DB_CONNECTION,
   { useNewUrlParser: true, useUnifiedTopology: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to DB!");
