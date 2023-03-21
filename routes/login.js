@@ -23,6 +23,10 @@ router.post("/", async (req, res) => {
     }
     // Validate if user exist in our database
     const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({ error: "User not found" });
+    }
     if (!user.is_verified) {
       return res.status(400).json({ error: "user present but not verified" });
     }
@@ -32,7 +36,6 @@ router.post("/", async (req, res) => {
         .send({ error: "user verified but not approved by admin" });
     }
     if (user && (await bcrypt.compare(password, user.password))) {
-
       // Create token
       const token = jwt.sign({ user_id: user._id, email }, process.env.TOKEN);
       // save user token
