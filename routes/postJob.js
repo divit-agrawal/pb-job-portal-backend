@@ -25,7 +25,14 @@ router.post("/", upload.none(), async (req, res) => {
     jd: body.html,
   });
 
-  await job.save();
+  await job
+    .save()
+    .then((data) => {
+      console.log("Saved job record");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   return res.status(200).send();
 });
 

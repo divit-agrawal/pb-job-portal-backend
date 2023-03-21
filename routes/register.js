@@ -11,7 +11,7 @@ const jwt = require("jsonwebtoken");
 const sgMail = require("@sendgrid/mail");
 
 router.post("/", async (req, res) => {
- console.log(req.body)
+//  console.log(req.body)
   if (
     !req.body.phone_number ||
     !req.body.username ||
