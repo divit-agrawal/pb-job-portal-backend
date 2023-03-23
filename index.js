@@ -37,12 +37,12 @@ require("dotenv/config");
 //   })
 // );
 
-// const postChapter = require("./routes/postChapter");
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
+const posterSignUp = require("./routes/posterSignUp");
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 const getJobs = require("./routes/getJobs");
 app.use(
@@ -97,7 +97,7 @@ app.use(bodyParser.json());
 // app.use("/getDynamicChapterQuestion", auth, getDynamicChapterQuestion);
 // app.use("/postUnit", postUnit); // incomplete
 // app.use("/postChapter", postChapter);
-// app.use("/postModule", postModule);
+app.use("/posterSignUp", posterSignUp);
 app.use("/getJobs", getJobs);
 app.use("/postJob", postJob);
 app.use("/verifyJobPoster", verifyByAdmin);

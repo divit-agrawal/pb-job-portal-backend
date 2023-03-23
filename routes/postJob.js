@@ -9,6 +9,8 @@ const Job = require("../models/job");
 
 const sgMail = require("@sendgrid/mail");
 
+const PostingSignUp = require("../models/posting");
+
 router.post("/", upload.none(), async (req, res) => {
   const body = req.body;
 
@@ -27,7 +29,29 @@ router.post("/", upload.none(), async (req, res) => {
 
   await job
     .save()
-    .then((data) => {
+    .then(async (data) => {
+      const subscribers = await PostingSignUp.find({ poster_email: em });
+      if (subscribers) {
+        sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+        subscribers.map((sub) => {
+          const message = {
+            to: sub.seeker_email,
+            from: "adminverify@positionbuilding.com",
+            subject: "Adminverify",
+            text: "Adminverify",
+            html: `<p>New job posting by ${sub.username}</p>`,
+          };
+          sgMail
+            .send(message)
+            .then((resp) => {
+              console.log("email sent to all subscribers");
+              // console.log(resp);
+            })
+            .catch((err) => {
+              console.log(err);
+            }); 
+        });
+      }
       console.log("Saved job record");
     })
     .catch((err) => {
