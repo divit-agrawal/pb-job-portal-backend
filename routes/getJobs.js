@@ -19,6 +19,7 @@ router.get("/", async (req, res) => {
       email: job.email,
       jd: job.jd,
       username: user.username,
+      about: user.about,
     });
     // console.log(arr[i]);
   }
