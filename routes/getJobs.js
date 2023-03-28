@@ -14,12 +14,14 @@ router.get("/", async (req, res) => {
     const user = await User.findOne({ email: job.email });
     // job.username = user.username;
     // console.log(job);
+    // console.log(user);
     arr.push({
       id: job.id,
       email: job.email,
       jd: job.jd,
       username: user.username,
       about: user.about,
+      phone: user.phone_number,
     });
     // console.log(arr[i]);
   }
