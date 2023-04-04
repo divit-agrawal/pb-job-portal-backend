@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   phone_number: { type: String, default: null },
+  company_name: { type: String, default: null },
   username: { type: String, default: null },
   email: { type: String, default: null },
   about: { type: String, default: null },

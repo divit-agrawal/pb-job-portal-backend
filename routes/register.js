@@ -11,8 +11,9 @@ const jwt = require("jsonwebtoken");
 const sgMail = require("@sendgrid/mail");
 
 router.post("/", async (req, res) => {
-//  console.log(req.body)
+  //  console.log(req.body)
   if (
+    !req.body.company_name ||
     !req.body.phone_number ||
     !req.body.username ||
     !req.body.email ||
@@ -45,6 +46,7 @@ router.post("/", async (req, res) => {
     encryptedPassword = await bcrypt.hash(password, 10);
     // Create user in our  database
     const user = await User.create({
+      company_name: req.body.company_name,
       phone_number,
       username,
       email: email.toLowerCase(),

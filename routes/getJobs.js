@@ -22,6 +22,7 @@ router.get("/", async (req, res) => {
       username: user.username,
       about: user.about,
       phone: user.phone_number,
+      company_name: user.company_name,
     });
     // console.log(arr[i]);
   }
