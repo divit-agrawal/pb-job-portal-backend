@@ -16,26 +16,26 @@ require("dotenv/config");
 
 // const auth = require("./routes/verify");
 
-// const postDynamicChapterLs = require("./routes/postdynamicchapterls");
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
+const resetPassword = require("./routes/resetPassword");
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
-// const postQuestion = require("./routes/postQuestion");
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
+const forgotPassword = require("./routes/forgotPassword");
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
-// const postModule = require("./routes/postModule");
-// app.use(
-//   bodyParser.urlencoded({
-//     extended: true,
-//   })
-// );
+const deleteJobByJd = require("./routes/deleteJobByJd");
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 const posterSignUp = require("./routes/posterSignUp");
 app.use(
@@ -93,10 +93,9 @@ app.use(
 );
 app.use(bodyParser.json());
 // app.use("/getls", getls);
-// app.use("/postUserProgress", postUserProgress);
-// app.use("/getDynamicChapterQuestion", auth, getDynamicChapterQuestion);
-// app.use("/postUnit", postUnit); // incomplete
-// app.use("/postChapter", postChapter);
+app.use("/resetPassword", resetPassword);
+app.use("/forgotPassword", forgotPassword);
+app.use("/deleteJobByJd", deleteJobByJd);
 app.use("/posterSignUp", posterSignUp);
 app.use("/getJobs", getJobs);
 app.use("/postJob", postJob);
