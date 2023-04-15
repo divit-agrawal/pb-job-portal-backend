@@ -71,8 +71,10 @@ router.post("/", async (req, res) => {
       .catch((err) => {
         console.log(err);
       });
+    res.status(200).send("Email sent");
   } catch (err) {
     console.log(err);
+    res.send(err);
   }
 });
 
