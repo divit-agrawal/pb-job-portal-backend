@@ -30,9 +30,9 @@ router.get("/:token", async (req, res) => {
                 if (err) {
                   console.log("Something wrong when updating data!");
                 } else {
-                 //send email to admin for approval 
+                  //send email to admin for approval
 
-                 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+                  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
                   // console.log(doc);
                   const message = {
                     to: process.env.ADMIN_EMAIL, //admin
@@ -50,11 +50,14 @@ router.get("/:token", async (req, res) => {
                     })
                     .catch((err) => {
                       console.log(err);
-                    }); 
+                    });
                 }
               }
             );
-            return res.send("Email verified successfully");
+            res.setHeader("Content-Type", "text/html");
+            res.send(
+              '<div style="width: 95vw; height: 95vh; display: flex; justify-content: center;align-items: center">Email verified successfully</div>'
+            );
           }
           // console.log(decoded);
           // res.send("Email verifified successfully");
