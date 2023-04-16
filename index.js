@@ -30,7 +30,7 @@ app.use(
   })
 );
 
-const deleteJobByJd = require("./routes/deleteJobByJd");
+const deleteJobById = require("./routes/deleteJobById");
 app.use(
   bodyParser.urlencoded({
     extended: true,
@@ -95,7 +95,7 @@ app.use(bodyParser.json());
 // app.use("/getls", getls);
 app.use("/resetPassword", resetPassword);
 app.use("/forgotPassword", forgotPassword);
-app.use("/deleteJobByJd", deleteJobByJd);
+app.use("/deleteJobById", deleteJobById);
 app.use("/posterSignUp", posterSignUp);
 app.use("/getJobs", getJobs);
 app.use("/postJob", postJob);
