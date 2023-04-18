@@ -54,13 +54,13 @@ router.get("/:token", async (req, res) => {
                 }
               }
             );
-            res.setHeader("Content-Type", "text/html");
-            res.send(
-              '<div style="width: 95vw; height: 95vh; display: flex; justify-content: center;align-items: center">Email verified successfully</div>'
-            );
+            // res.setHeader("Content-Type", "text/html");
+            // res.send(
+            //   '<div style="width: 95vw; height: 95vh; display: flex; justify-content: center;align-items: center">Email verified successfully</div>'
+            // );
           }
           // console.log(decoded);
-          // res.send("Email verifified successfully");
+          res.send("Email verifified successfully");
         }
       }
     );
