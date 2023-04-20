@@ -36,7 +36,7 @@ router.post("/", upload.none(), async (req, res) => {
         subscribers.map((sub) => {
           const message = {
             to: sub.seeker_email,
-            from: "adminverify@positionbuilding.com",
+            from: process.env.PB_USERFRONT_EMAIL,
             subject: "Adminverify",
             text: "Adminverify",
             html: `<p>New job posting by ${sub.username}</p>`,

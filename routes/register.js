@@ -71,7 +71,7 @@ router.post("/", async (req, res) => {
 
     const message = {
       to: req.body.email,
-      from: "divit@positionbuilding.com",
+      from: process.env.PB_USERFRONT_EMAIL,
       subject: "hellow",
       text: "hellow",
       html: `<p>Please click on this link to approve yourself for PB Jobs. Only after admin approval, you will be able to post jobs. <a href="${process.env.BASE_URL}/verify/${token_reg}">${process.env.BASE_URL}/verify/${token_reg}</a></p>`,

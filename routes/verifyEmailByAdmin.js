@@ -33,11 +33,11 @@ router.get("/:token", async (req, res) => {
                   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
                   // console.log(doc);
                   const message = {
-                    to: email, //admin
-                    from: "emailverified@positionbuilding.com",
+                    to: email, 
+                    from: process.env.PB_USERFRONT_EMAIL,
                     subject: "emailverified",
                     text: "emailverified",
-                    html: "Your job posting has been approved by the admin. Following are the instructions:",
+                    html: "Your account has been approved by the admin. Following are the instructions:",
                   };
 
                   sgMail

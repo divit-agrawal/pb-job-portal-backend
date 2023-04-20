@@ -36,7 +36,7 @@ router.get("/:token", async (req, res) => {
                   // console.log(doc);
                   const message = {
                     to: process.env.ADMIN_EMAIL, //admin
-                    from: "adminverify@positionbuilding.com",
+                    from: process.env.PB_USERFRONT_EMAIL,
                     subject: "Adminverify",
                     text: "Adminverify",
                     html: `<h3>New job posting!</h3><p>Username: ${doc.username}</p><p>Phone number: ${doc.phone_number}</p><p>Email: ${doc.email}</p><p>Click here to approve this job posting:</p><a href="${process.env.BASE_URL}/verifyJobPoster/${req.params.token}">${process.env.BASE_URL}/verifyJobPoster/${req.params.token}</a>`,

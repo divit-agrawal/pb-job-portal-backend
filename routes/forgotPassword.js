@@ -56,7 +56,7 @@ router.post("/", async (req, res) => {
 
     const message = {
       to: email,
-      from: "divit@positionbuilding.com",
+      from: process.env.PB_USERFRONT_EMAIL,
       subject: "hellow",
       text: "hellow",
       html: `<div><p>Your new password is: ${newPassword}</p><br/><p>To update it, go to positionbuilding portal, log in, and go to profile.</p></div>`,
